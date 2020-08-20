@@ -1,4 +1,6 @@
-package com.audriuskumpis.dao;
+package com.audriuskumpis.crmapp.dao;
+
+import java.util.List;
 
 import com.audriuskumpis.crmapp.entity.Customer;
 import org.hibernate.Session;
@@ -8,19 +10,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 @Repository
 public class CustomerDAOImplementation implements CustomerDAO {
+
+    // need to inject the session factory
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
     @Transactional
     public List<Customer> getCustomers() {
-        Session session = sessionFactory.getCurrentSession();
-        Query<Customer> query = session.createQuery("from Customer", Customer.class);
-        List<Customer> customers = query.getResultList();
+
+        // get the current hibernate session
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        // create a query
+        Query<Customer> theQuery =
+                currentSession.createQuery("from Customer", Customer.class);
+
+        // execute query and get result list
+        List<Customer> customers = theQuery.getResultList();
+
+        // return the results
         return customers;
     }
+
 }

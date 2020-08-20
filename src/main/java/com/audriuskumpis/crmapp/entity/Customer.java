@@ -20,7 +20,6 @@ public class Customer {
     private String email;
 
     public Customer() {
-
     }
 
     public Customer(String firstName, String lastName, String email) {
