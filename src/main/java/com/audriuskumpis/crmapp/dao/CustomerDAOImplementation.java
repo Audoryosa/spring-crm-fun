@@ -9,21 +9,25 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 @Repository
 public class CustomerDAOImplementation implements CustomerDAO {
 
-    // need to inject the session factory
-    @Autowired
-    private SessionFactory sessionFactory;
+    private EntityManager entityManager;
+
+    public CustomerDAOImplementation(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
 
     @Override
     @Transactional
     public List<Customer> getCustomers() {
 
         // get the current hibernate session
-        Session currentSession = sessionFactory.getCurrentSession();
+        Session currentSession = entityManager.unwrap(Session.class);
 
         // create a query
         Query<Customer> theQuery =
