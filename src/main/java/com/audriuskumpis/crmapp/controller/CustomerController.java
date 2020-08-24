@@ -2,7 +2,6 @@ package com.audriuskumpis.crmapp.controller;
 
 import java.util.List;
 
-import com.audriuskumpis.crmapp.dao.CustomerDAO;
 import com.audriuskumpis.crmapp.entity.Customer;
 import com.audriuskumpis.crmapp.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
