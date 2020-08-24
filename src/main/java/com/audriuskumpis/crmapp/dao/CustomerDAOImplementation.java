@@ -4,9 +4,7 @@ import java.util.List;
 
 import com.audriuskumpis.crmapp.entity.Customer;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -21,9 +19,7 @@ public class CustomerDAOImplementation implements CustomerDAO {
         this.entityManager = entityManager;
     }
 
-
     @Override
-    @Transactional
     public List<Customer> getCustomers() {
 
         // get the current hibernate session

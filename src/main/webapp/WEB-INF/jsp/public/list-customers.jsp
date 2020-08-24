@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%@ include file="common/header.jsp" %>
+    <%@ include file="../common/header.jsp" %>
     <title>Customer Page</title>
 </head>
 <body>
@@ -36,6 +36,6 @@
         </table>
     </div>
 </div>
-<%@ include file="common/footer.jsp" %>
+<%@ include file="../common/footer.jsp" %>
 </body>
 </html>
