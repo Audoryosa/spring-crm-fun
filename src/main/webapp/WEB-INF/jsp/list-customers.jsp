@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <%@ include file="common/header.jsp" %>
     <title>Customer Page</title>
 </head>
 <body>
-<h1>Hello there</h1>
+<h1 class="hello-title">Hello there</h1>
 
 <div id="wrapper">
     <div id="header">
@@ -17,12 +17,14 @@
 
 <div id="container">
     <div id="content">
-        <table>
+        <table class="table table-stripped table-hover">
+            <thead class="table-dark">
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email Name</th>
             </tr>
+            </thead>
 
             <c:forEach var="tempCustomer" items="${customers}">
                 <tr>
@@ -34,6 +36,6 @@
         </table>
     </div>
 </div>
-
+<%@ include file="common/footer.jsp" %>
 </body>
 </html>
