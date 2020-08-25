@@ -49,4 +49,12 @@ public class CustomerDAOImplementation implements CustomerDAO {
         return customer;
     }
 
+    @Override
+    public void delete(int id) {
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query query = currentSession.createQuery("delete from Customer where id=:customerId");
+        query.setParameter("customerId", id);
+        query.executeUpdate();
+    }
+
 }

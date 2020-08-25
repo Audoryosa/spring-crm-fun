@@ -10,5 +10,6 @@ public class Messages {
     public static final String RETURN_BACK = "Go back";
     public static final String ACTION = "Action";
     public static final String UPDATE = "Update";
+    public static final String DELETE = "Delete";
 }
 
