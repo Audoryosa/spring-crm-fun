@@ -5,3 +5,12 @@
 html {
     padding: 10px;
 }
+
+.buttons {
+    display: flex;
+    padding: 5px 5px 5px 0px;
+}
+
+.button-wide {
+    width: 150px;
+}

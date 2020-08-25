@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="com.audriuskumpis.crmapp.Messages" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,15 +8,21 @@
     <title>Customer Page</title>
 </head>
 <body>
-<h1 class="hello-title">Hello there</h1>
 
 <div id="wrapper">
     <div id="header">
-        <h2>CRM App</h2>
+        <h2>List of Customers</h2>
+        <hr/>
     </div>
 </div>
 
 <div id="container">
+
+    <div class="buttons">
+        <input type="button" class="btn btn-primary" value="<c:out value="${Messages.ADD_CUSTOMER}" />"
+               onclick="window.location.href='showAddCustomerForm'; return false;"/>
+    </div>
+
     <div id="content">
         <table class="table table-stripped table-hover">
             <thead class="table-dark">

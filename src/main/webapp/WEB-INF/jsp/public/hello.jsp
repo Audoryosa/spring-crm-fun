@@ -9,7 +9,8 @@
 <body>
 <h1 class="hello-title">Coming soon: some site</h1>
 
-<button type="button" class="btn btn-primary"><c:out value="${Messages.NEXT_PAGE}"/></button>
+<a href="${pageContext.request.contextPath}/customer/list" class="btn btn-primary"><c:out
+        value="${Messages.NEXT_PAGE}"/></a>
 
 <%@ include file="../common/footer.jsp" %>
 </body>
