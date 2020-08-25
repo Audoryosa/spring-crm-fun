@@ -12,6 +12,8 @@
 <hr/>
 
 <form:form action="saveCustomer" modelAttribute="customer" method="POST">
+    <form:hidden path="id"/>
+
     <table class="table col-lg-4">
         <tbody>
         <tr>

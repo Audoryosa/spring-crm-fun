@@ -38,7 +38,15 @@ public class CustomerDAOImplementation implements CustomerDAO {
     @Override
     public void saveCustomer(Customer customer) {
         Session currentSession = entityManager.unwrap(Session.class);
-        currentSession.save(customer);
+        currentSession.saveOrUpdate(customer);
+    }
+
+    @Override
+    public Customer getCustomer(int id) {
+        Session currentSession = entityManager.unwrap(Session.class);
+        Customer customer = currentSession.get(Customer.class, id);
+
+        return customer;
     }
 
 }

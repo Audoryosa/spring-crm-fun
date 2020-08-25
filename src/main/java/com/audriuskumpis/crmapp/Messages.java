@@ -8,4 +8,7 @@ public class Messages {
     public static final String EMAIL = "Email";
     public static final String SAVE = "Save";
     public static final String RETURN_BACK = "Go back";
+    public static final String ACTION = "Action";
+    public static final String UPDATE = "Update";
 }
+

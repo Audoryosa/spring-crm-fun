@@ -27,17 +27,24 @@
         <table class="table table-stripped table-hover">
             <thead class="table-dark">
             <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email Name</th>
+                <th><c:out value="${Messages.FIRST_NAME}"/></th>
+                <th><c:out value="${Messages.LAST_NAME}"/></th>
+                <th><c:out value="${Messages.EMAIL}"/></th>
+                <th><c:out value="${Messages.ACTION}"/></th>
             </tr>
             </thead>
 
             <c:forEach var="tempCustomer" items="${customers}">
+
+                <c:url var="updateLink" value="/customer/showFormUpdate">
+                    <c:param name="customerId" value="${tempCustomer.id}"/>
+                </c:url>
+
                 <tr>
                     <td> ${tempCustomer.firstName}</td>
                     <td> ${tempCustomer.lastName}</td>
                     <td> ${tempCustomer.email}</td>
+                    <td><a href="${updateLink}"><c:out value="${Messages.UPDATE}"/></a></td>
                 </tr>
             </c:forEach>
         </table>
