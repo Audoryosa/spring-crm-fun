@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page import="com.audriuskumpis.crmapp.Messages" %>
 
 <!DOCTYPE html>
@@ -19,8 +20,23 @@
 <div id="container">
 
     <div class="buttons">
-        <input type="button" class="btn btn-primary" value="<c:out value="${Messages.ADD_CUSTOMER}" />"
+        <div class="element">
+            <input type="button" class="btn btn-primary" value="<c:out value="${Messages.ADD_CUSTOMER}" />"
                onclick="window.location.href='showAddCustomerForm'; return false;"/>
+        </div>
+        <div class="element">
+            <form:form action="search" method="GET">
+                Search customer: <input type="text" name="searchBox"/>
+                <input type="submit" value="Search" class="btn btn-success"/>
+            </form:form>
+        </div>
+
+        <div class="element">
+            <input onclick="window.location.href='list'; return false;" class="btn btn-info" type="submit"
+                   value="Clear search"/>
+        </div>
+
+
     </div>
 
     <div id="content">

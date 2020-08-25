@@ -1,11 +1,13 @@
 package com.audriuskumpis.crmapp.dao;
 
+import java.util.Collections;
 import java.util.List;
 
 import com.audriuskumpis.crmapp.entity.Customer;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
@@ -55,6 +57,21 @@ public class CustomerDAOImplementation implements CustomerDAO {
         Query query = currentSession.createQuery("delete from Customer where id=:customerId");
         query.setParameter("customerId", id);
         query.executeUpdate();
+    }
+
+    @Override
+    public List<Customer> search(String searchItem) {
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query query = null;
+
+        if (searchItem != null && !StringUtils.isEmpty(searchItem)) {
+            query = currentSession.createQuery("from Customer where lower(firstName) like :name or lower(lastName) like :name", Customer.class);
+            query.setParameter("name", "%" + searchItem.toLowerCase() + "%");
+            List<Customer> customers = query.getResultList();
+            return customers;
+        } else {
+            return Collections.emptyList();
+        }
     }
 
 }

@@ -58,4 +58,12 @@ public class CustomerController {
         return "redirect:/customer/list";
     }
 
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String search(@RequestParam("searchBox") String searchItem, Model model) {
+        List<Customer> foundCustomers = customerService.search(searchItem);
+        model.addAttribute("customers", foundCustomers);
+
+        return "list-customers";
+    }
+
 }
