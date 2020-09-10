@@ -11,5 +11,9 @@ public class Messages {
     public static final String ACTION = "Action";
     public static final String UPDATE = "Update";
     public static final String DELETE = "Delete";
+    public static final String LOGIN = "Login";
+    public static final String CLEAR_SEARCH = "Clear search field";
+    public static final String SEARCH = "Search";
+    public static final String HOME = "Home";
 }
 

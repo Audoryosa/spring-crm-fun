@@ -27,13 +27,13 @@
         <div class="element">
             <form:form action="search" method="GET">
                 Search customer: <input type="text" name="searchBox"/>
-                <input type="submit" value="Search" class="btn btn-success"/>
+                <input type="submit" value="<c:out value="${Messages.SEARCH}" />" class="btn btn-success"/>
             </form:form>
         </div>
 
         <div class="element">
             <input onclick="window.location.href='list'; return false;" class="btn btn-info" type="submit"
-                   value="Clear search"/>
+                   value="<c:out value="${Messages.CLEAR_SEARCH}" />"/>
         </div>
 
 
@@ -70,6 +70,7 @@
                 </tr>
             </c:forEach>
         </table>
+        <a href="${pageContext.request.contextPath}/"><c:out value="${Messages.HOME}"/></a>
     </div>
 </div>
 <%@ include file="../common/footer.jsp" %>
