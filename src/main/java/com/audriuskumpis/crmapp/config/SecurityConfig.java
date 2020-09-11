@@ -18,6 +18,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.inMemoryAuthentication().withUser(userBuilder.username("john").password("admin").roles("EMPLOYEE"))
                 .withUser(userBuilder.username("mary").password("admin").roles("MANAGER"))
-                .withUser(userBuilder.username("susan").password("admin").roles("ADMIN"));
+                .withUser(userBuilder.username("admin").password("admin").roles("ADMIN"));
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/authenticateTheUser")
+                .defaultSuccessUrl("/", true)
+                .permitAll();
     }
 }
