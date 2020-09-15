@@ -9,26 +9,37 @@
 </head>
 <body>
 
-<h2>Log in to continue</h2>
+<div>
+    <h2>Log in to continue</h2>
+    <form:form action="${pageContext.request.contextPath}/authenticateTheUser" method="POST">
+        <div class="form">
+            <label>User name:</label> <input type="text" name="username">
+            <label>Password:</label> <input type="password" name="password">
+            <input class="btn btn-primary" type="submit" value="<c:out value="${Messages.LOGIN}" />">
 
-<form:form action="${pageContext.request.contextPath}/authenticateTheUser" method="POST">
-    <div class="form">
-        <label>User name:</label> <input type="text" name="username">
-        <label>Password:</label> <input type="password" name="password">
-        <input class="btn btn-primary" type="submit" value="<c:out value="${Messages.LOGIN}" />">
+            <c:if test="${param.error != null}">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 25%">
+                    <span>${Messages.LOGIN_FAILED}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:if>
 
-        <c:if test="${param.error != null}">
-            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="width: 25%">
-                Bad credentials
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </c:if>
-    </div>
-</form:form>
+            <c:if test="${param.logout != null}">
+                <div class="alert alert-success alert-dismissible fade show" role="alert" style="width: 25%">
+                    <span>${Messages.LOGOUT_SUCCESS}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </c:if>
+        </div>
+    </form:form>
 
-<a href="${pageContext.request.contextPath}/"><c:out value="${Messages.HOME}"/></a>
+    <a href="${pageContext.request.contextPath}/"><c:out value="${Messages.HOME}"/></a>
+</div>
+
 <%@ include file="../common/footer.jsp" %>
 </body>
 </html>

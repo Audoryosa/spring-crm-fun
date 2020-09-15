@@ -15,5 +15,8 @@ public class Messages {
     public static final String CLEAR_SEARCH = "Clear search field";
     public static final String SEARCH = "Search";
     public static final String HOME = "Home";
+    public static final String LOGOUT = "Log out";
+    public static final String LOGOUT_SUCCESS = "Logged out successfully!";
+    public static final String LOGIN_FAILED = "Log in failed. Check your credentials.";
 }
 
